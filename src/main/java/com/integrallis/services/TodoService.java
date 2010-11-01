@@ -4,6 +4,7 @@ import java.util.*;
 import com.integrallis.domain.Todo;
 import java.lang.RuntimeException;
 import static org.apache.commons.lang.StringUtils.isBlank;
+import com.integrallis.exceptions.NotFoundException;
 
 public class TodoService {
   
@@ -25,7 +26,7 @@ public class TodoService {
   
   public void addTodo(Todo todo) {
     if (isBlank(todo.getName())) {
-      throw new RuntimeException("forgot the name");
+      throw new NotFoundException("forgot the name");
     }
     
     todos.add(todo);
